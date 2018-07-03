@@ -40,6 +40,10 @@ def index():
                 goals_list_a.append(g['player'] +' '+ g['time'])
 
     for c_time in current_games:
-        time = int(c_time['time'][:-1])
-	
+        if c_time == 'half-time':
+            time = 45
+        else:
+            time = int(c_time['time'][:-1])
+
+
     return render_template('index.html' ,title='World Cup 2018', match_list=match_list, current_games=current_games,fmatch_list=fmatch_list, goals_list_a=goals_list_a, goals_list_h=goals_list_h, time=time)

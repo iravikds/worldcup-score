@@ -40,8 +40,10 @@ def index():
                 goals_list_a.append(g['player'] +' '+ g['time'])
 
     for c_time in current_games:
-        if c_time == 'half-time':
+        if c_time['time'] == 'half-time':
             time = 45
+        elif c_time['time'] == 'full-time':
+            time = 90
         else:
             time = int(c_time['time'][:-1])
 
